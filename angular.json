@@ -3,5 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "validation-form-library": {
+      "projectType": "library",
+      "root": "projects/validation-form-library",
+      "sourceRoot": "projects/validation-form-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/validation-form-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/validation-form-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/validation-form-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/validation-form-library/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
